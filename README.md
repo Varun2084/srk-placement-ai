@@ -22,6 +22,15 @@ It is fully local: no paid AI API is needed. `app/ai/providers.py` has adapters 
 
 ## Run it
 
+### Laptop par check karna (sabse aasaan)
+
+1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) install karein aur kholein.
+2. GitHub par **Code → Download ZIP** karein aur ZIP ko unzip karein (ya `git clone` karein).
+3. **Windows:** folder mein `start.bat` par double-click karein. **Mac/Linux:** `bash start.sh`.
+4. 5–10 minute baad browser mein `http://localhost:8080` apne aap khul jaayega. Demo logins neeche table mein hain.
+
+Band karna ho to `docker compose stop`, dobara chalana ho to `docker compose start` (ya `start.bat` phir se).
+
 ### Option A — College server with Docker (one command)
 
 On any Ubuntu 24.04 PC on the college network:

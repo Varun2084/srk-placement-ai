@@ -45,3 +45,20 @@ jobs:
       - name: Logs on failure
         if: failure()
         run: docker compose logs
+  windows-launcher:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: start.ps1 parses and creates a valid .env
+        shell: powershell
+        run: |
+          $errs = $null
+          [System.Management.Automation.Language.Parser]::ParseFile("$PWD\start.ps1", [ref]$null, [ref]$errs) | Out-Null
+          if ($errs.Count) { $errs; exit 1 }
+          function RandHex($n) { -join ((1..$n) | ForEach-Object { '{0:x2}' -f (Get-Random -Maximum 256) }) }
+          (Get-Content .env.example) -replace '^JWT_SECRET=.*', "JWT_SECRET=$(RandHex 32)" -replace '^POSTGRES_PASSWORD=.*', "POSTGRES_PASSWORD=$(RandHex 16)" -replace '^APP_PORT=.*', 'APP_PORT=8080' | Set-Content .env -Encoding ascii
+          $e = Get-Content .env
+          if (-not ($e -match '^JWT_SECRET=[0-9a-f]{64}$')) { "bad JWT"; exit 1 }
+          if (-not ($e -match '^POSTGRES_PASSWORD=[0-9a-f]{32}$')) { "bad PG"; exit 1 }
+          if (-not ($e -match '^APP_PORT=8080$')) { "bad port"; exit 1 }
+          "launcher ok"
