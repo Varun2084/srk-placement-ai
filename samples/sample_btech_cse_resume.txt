@@ -1,0 +1,21 @@
+Aman Dwivedi
+aman.dwivedi@example.com | +91 9876500022
+
+Education
+B.Tech (Computer Science), SRKCESM Satna | 2023-2027 | CGPA: 7.9/10
+12th (MP Board) | 2023 | 82%
+10th (MP Board) | 2021 | 88%
+Active backlogs: 0
+
+Technical Skills
+Java, Python, SQL, React, Node.js, Docker, Data Structures
+
+Projects
+- Built a hostel complaint tracker using React, Node.js and MySQL, deployed with Docker on AWS
+- Implemented data structures and algorithms visualiser in Java
+
+Internship
+- Web development intern (8 weeks): REST APIs in Django and PostgreSQL
+
+Certifications
+- NPTEL Programming in Java (Elite)

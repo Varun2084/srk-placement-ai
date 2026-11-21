@@ -1,0 +1,984 @@
+{
+ "version": "tax-2026.11",
+ "skills": {
+  "python": {
+   "label": "Python",
+   "aliases": [
+    "python",
+    "python3"
+   ],
+   "related": [
+    "java",
+    "c_cpp"
+   ],
+   "suggest": "NPTEL Programming, Data Structures and Algorithms using Python"
+  },
+  "java": {
+   "label": "Java",
+   "aliases": [
+    "java",
+    "core java",
+    "j2ee"
+   ],
+   "related": [
+    "python",
+    "c_cpp"
+   ],
+   "suggest": "NPTEL Programming in Java"
+  },
+  "c_cpp": {
+   "label": "C / C++",
+   "aliases": [
+    "c++",
+    "cpp",
+    "c programming",
+    "programming in c"
+   ],
+   "related": [
+    "java",
+    "python"
+   ],
+   "suggest": "NPTEL Programming in C++"
+  },
+  "sql": {
+   "label": "SQL / Databases",
+   "aliases": [
+    "sql",
+    "mysql",
+    "postgresql",
+    "oracle database",
+    "dbms",
+    "database management"
+   ],
+   "related": [
+    "excel"
+   ],
+   "suggest": "Build a small CRUD project with MySQL"
+  },
+  "web": {
+   "label": "Web development",
+   "aliases": [
+    "html",
+    "css",
+    "javascript",
+    "react",
+    "node.js",
+    "nodejs",
+    "web development",
+    "django",
+    "flask"
+   ],
+   "related": [
+    "python",
+    "java"
+   ],
+   "suggest": "Deploy one full-stack project on GitHub"
+  },
+  "dsa": {
+   "label": "Data structures & algorithms",
+   "aliases": [
+    "data structures",
+    "algorithms",
+    "dsa",
+    "competitive programming",
+    "leetcode",
+    "hackerrank"
+   ],
+   "related": [
+    "c_cpp",
+    "java",
+    "python"
+   ],
+   "suggest": "Solve 100 problems on a coding platform; NPTEL DSA"
+  },
+  "data_analysis": {
+   "label": "Data analysis",
+   "aliases": [
+    "data analysis",
+    "pandas",
+    "numpy",
+    "power bi",
+    "tableau",
+    "data visualization",
+    "statistics"
+   ],
+   "related": [
+    "excel",
+    "python",
+    "sql"
+   ],
+   "suggest": "One data analysis project with a public dataset"
+  },
+  "ml": {
+   "label": "Machine learning",
+   "aliases": [
+    "machine learning",
+    "scikit-learn",
+    "sklearn",
+    "deep learning",
+    "tensorflow",
+    "pytorch",
+    "artificial intelligence"
+   ],
+   "related": [
+    "python",
+    "data_analysis"
+   ],
+   "suggest": "NPTEL Introduction to Machine Learning"
+  },
+  "cloud": {
+   "label": "Cloud / DevOps",
+   "aliases": [
+    "aws",
+    "azure",
+    "google cloud",
+    "docker",
+    "kubernetes",
+    "devops",
+    "linux"
+   ],
+   "related": [
+    "web"
+   ],
+   "suggest": "AWS Cloud Practitioner or Azure Fundamentals"
+  },
+  "testing": {
+   "label": "Software testing",
+   "aliases": [
+    "software testing",
+    "manual testing",
+    "selenium",
+    "test cases",
+    "qa testing"
+   ],
+   "related": [
+    "java",
+    "python"
+   ],
+   "suggest": "ISTQB Foundation; a Selenium mini project"
+  },
+  "networking": {
+   "label": "Computer networks",
+   "aliases": [
+    "computer networks",
+    "networking",
+    "ccna",
+    "tcp/ip"
+   ],
+   "related": [
+    "cloud"
+   ],
+   "suggest": "Cisco CCNA basics"
+  },
+  "autocad": {
+   "label": "AutoCAD",
+   "aliases": [
+    "autocad",
+    "auto cad",
+    "autocad 2d",
+    "autocad 3d"
+   ],
+   "related": [
+    "solidworks",
+    "staad"
+   ],
+   "suggest": "Autodesk AutoCAD certificate course"
+  },
+  "staad": {
+   "label": "STAAD.Pro / structural design",
+   "aliases": [
+    "staad",
+    "staad pro",
+    "staad.pro",
+    "etabs",
+    "structural analysis",
+    "structural design"
+   ],
+   "related": [
+    "autocad"
+   ],
+   "suggest": "STAAD.Pro course with one designed structure"
+  },
+  "surveying": {
+   "label": "Surveying",
+   "aliases": [
+    "surveying",
+    "total station",
+    "levelling",
+    "theodolite",
+    "gps survey"
+   ],
+   "related": [
+    "site_execution"
+   ],
+   "suggest": "Field survey practice with total station"
+  },
+  "estimation": {
+   "label": "Estimation & costing",
+   "aliases": [
+    "estimation",
+    "costing",
+    "quantity surveying",
+    "bill of quantities",
+    "boq",
+    "rate analysis"
+   ],
+   "related": [
+    "site_execution"
+   ],
+   "suggest": "Prepare a BOQ for a small building project"
+  },
+  "site_execution": {
+   "label": "Site execution",
+   "aliases": [
+    "site execution",
+    "site supervision",
+    "construction management",
+    "site engineer",
+    "concrete technology",
+    "rcc"
+   ],
+   "related": [
+    "surveying",
+    "estimation"
+   ],
+   "suggest": "Summer site training with a construction firm"
+  },
+  "solidworks": {
+   "label": "SolidWorks / CATIA / Creo",
+   "aliases": [
+    "solidworks",
+    "catia",
+    "creo",
+    "ansys",
+    "fusion 360",
+    "3d modelling"
+   ],
+   "related": [
+    "autocad"
+   ],
+   "suggest": "CSWA (SolidWorks Associate)"
+  },
+  "manufacturing": {
+   "label": "Manufacturing processes",
+   "aliases": [
+    "manufacturing",
+    "production engineering",
+    "machining",
+    "welding",
+    "lean manufacturing",
+    "cnc",
+    "lathe",
+    "milling"
+   ],
+   "related": [
+    "maintenance",
+    "quality_tools"
+   ],
+   "suggest": "Industrial training in a manufacturing plant"
+  },
+  "maintenance": {
+   "label": "Plant maintenance",
+   "aliases": [
+    "maintenance",
+    "preventive maintenance",
+    "breakdown maintenance",
+    "hydraulics",
+    "pneumatics",
+    "plant maintenance"
+   ],
+   "related": [
+    "manufacturing",
+    "electrical_machines"
+   ],
+   "suggest": "Maintenance training at a cement or power plant"
+  },
+  "quality_tools": {
+   "label": "Quality tools",
+   "aliases": [
+    "six sigma",
+    "5s",
+    "kaizen",
+    "quality control tools",
+    "tqm",
+    "iso 9001"
+   ],
+   "related": [
+    "manufacturing"
+   ],
+   "suggest": "Six Sigma Yellow Belt"
+  },
+  "electrical_machines": {
+   "label": "Electrical machines & power",
+   "aliases": [
+    "electrical machines",
+    "transformer",
+    "power systems",
+    "switchgear",
+    "substation",
+    "power distribution"
+   ],
+   "related": [
+    "plc",
+    "electrical_wiring"
+   ],
+   "suggest": "Substation or MPEB/power plant training"
+  },
+  "plc": {
+   "label": "PLC / SCADA / automation",
+   "aliases": [
+    "plc",
+    "scada",
+    "industrial automation",
+    "hmi"
+   ],
+   "related": [
+    "electrical_machines"
+   ],
+   "suggest": "PLC & SCADA certificate course"
+  },
+  "electrical_wiring": {
+   "label": "Electrical wiring & installation",
+   "aliases": [
+    "electrical wiring",
+    "house wiring",
+    "panel wiring",
+    "earthing",
+    "electrical installation"
+   ],
+   "related": [
+    "electrical_machines"
+   ],
+   "suggest": "Wireman licence / installation practice"
+  },
+  "mining_ops": {
+   "label": "Mining operations",
+   "aliases": [
+    "mining operations",
+    "opencast mining",
+    "underground mining",
+    "mine planning",
+    "blasting",
+    "drilling and blasting",
+    "mine surveying"
+   ],
+   "related": [
+    "mine_safety",
+    "surveying"
+   ],
+   "suggest": "Vocational training at a coal or limestone mine"
+  },
+  "mine_safety": {
+   "label": "Mine safety & regulations",
+   "aliases": [
+    "mine safety",
+    "dgms",
+    "mines act",
+    "mining regulations",
+    "safety management plan",
+    "first aid certificate"
+   ],
+   "related": [
+    "mining_ops",
+    "safety"
+   ],
+   "suggest": "DGMS-oriented safety course; first aid certificate"
+  },
+  "safety": {
+   "label": "Industrial safety",
+   "aliases": [
+    "industrial safety",
+    "safety training",
+    "hse",
+    "ehs",
+    "fire safety",
+    "ppe"
+   ],
+   "related": [
+    "mine_safety"
+   ],
+   "suggest": "Industrial safety certificate"
+  },
+  "gmp": {
+   "label": "GMP / GLP",
+   "aliases": [
+    "gmp",
+    "cgmp",
+    "good manufacturing practice",
+    "glp",
+    "good laboratory practice",
+    "gdp"
+   ],
+   "related": [
+    "pharma_qa",
+    "pharma_production"
+   ],
+   "suggest": "WHO-GMP awareness course"
+  },
+  "pharma_qa": {
+   "label": "Quality assurance (pharma)",
+   "aliases": [
+    "quality assurance",
+    "sop",
+    "deviation",
+    "capa",
+    "change control",
+    "qa documentation",
+    "process validation"
+   ],
+   "related": [
+    "gmp",
+    "pharma_qc"
+   ],
+   "suggest": "QA documentation training; industrial training in QA"
+  },
+  "pharma_qc": {
+   "label": "Quality control & analysis",
+   "aliases": [
+    "quality control",
+    "pharmaceutical analysis",
+    "titration",
+    "assay",
+    "qc lab",
+    "qc analyst"
+   ],
+   "related": [
+    "instruments",
+    "pharma_qa"
+   ],
+   "suggest": "Hands-on QC lab training"
+  },
+  "instruments": {
+   "label": "Analytical instruments",
+   "aliases": [
+    "hplc",
+    "uv spectroscopy",
+    "uv-vis",
+    "uv visible",
+    "ftir",
+    "dissolution",
+    "karl fischer"
+   ],
+   "related": [
+    "pharma_qc"
+   ],
+   "suggest": "HPLC hands-on workshop"
+  },
+  "pharma_production": {
+   "label": "Formulation & production",
+   "aliases": [
+    "formulation",
+    "granulation",
+    "compression",
+    "coating",
+    "pharmaceutics",
+    "manufacturing of tablets",
+    "tablet manufacturing",
+    "tablet compression"
+   ],
+   "related": [
+    "gmp"
+   ],
+   "suggest": "Industrial training in a formulation plant"
+  },
+  "pharmacology": {
+   "label": "Pharmacology & product knowledge",
+   "aliases": [
+    "pharmacology",
+    "drug interactions",
+    "therapeutics",
+    "product knowledge",
+    "pharmacotherapy"
+   ],
+   "related": [
+    "dispensing",
+    "medical_sales"
+   ],
+   "suggest": "Revise pharmacology by therapeutic class"
+  },
+  "dispensing": {
+   "label": "Dispensing & patient counselling",
+   "aliases": [
+    "dispensing",
+    "patient counselling",
+    "prescription",
+    "hospital pharmacy",
+    "retail pharmacy",
+    "community pharmacy",
+    "inventory management"
+   ],
+   "related": [
+    "pharmacology"
+   ],
+   "suggest": "Hospital or community pharmacy training"
+  },
+  "medical_sales": {
+   "label": "Medical sales / MR",
+   "aliases": [
+    "medical representative",
+    "medical sales",
+    "detailing",
+    "doctor calls",
+    "field sales"
+   ],
+   "related": [
+    "pharmacology",
+    "communication",
+    "sales"
+   ],
+   "suggest": "Detailing practice; a sales-skills course"
+  },
+  "regulatory": {
+   "label": "Regulatory affairs",
+   "aliases": [
+    "regulatory affairs",
+    "cdsco",
+    "drug regulations",
+    "dossier",
+    "pharmacovigilance",
+    "drugs and cosmetics act"
+   ],
+   "related": [
+    "pharma_qa"
+   ],
+   "suggest": "Pharmacovigilance / regulatory affairs certificate"
+  },
+  "pharmacist_reg": {
+   "label": "Pharmacist registration",
+   "aliases": [
+    "registered pharmacist",
+    "pharmacy council registration",
+    "state pharmacy council"
+   ],
+   "related": [],
+   "suggest": "Apply for State Pharmacy Council registration"
+  },
+  "excel": {
+   "label": "MS Excel",
+   "aliases": [
+    "excel",
+    "ms excel",
+    "advanced excel",
+    "spreadsheet",
+    "vlookup",
+    "pivot table",
+    "ms office"
+   ],
+   "related": [
+    "data_analysis"
+   ],
+   "suggest": "Advanced Excel certificate"
+  },
+  "tally": {
+   "label": "Tally / accounting",
+   "aliases": [
+    "tally",
+    "tally erp",
+    "tally prime",
+    "gst",
+    "bookkeeping",
+    "financial accounting"
+   ],
+   "related": [
+    "finance"
+   ],
+   "suggest": "Tally Prime with GST course"
+  },
+  "finance": {
+   "label": "Finance & banking",
+   "aliases": [
+    "financial analysis",
+    "banking",
+    "investment",
+    "nism",
+    "financial statements",
+    "ratio analysis",
+    "mutual funds",
+    "insurance"
+   ],
+   "related": [
+    "excel",
+    "tally"
+   ],
+   "suggest": "NISM Mutual Fund Distributors certificate"
+  },
+  "marketing": {
+   "label": "Marketing",
+   "aliases": [
+    "marketing",
+    "market research",
+    "brand management",
+    "consumer behaviour",
+    "marketing strategy"
+   ],
+   "related": [
+    "digital_marketing",
+    "sales"
+   ],
+   "suggest": "Live market research project"
+  },
+  "digital_marketing": {
+   "label": "Digital marketing",
+   "aliases": [
+    "digital marketing",
+    "seo",
+    "social media marketing",
+    "google ads",
+    "content marketing",
+    "google analytics"
+   ],
+   "related": [
+    "marketing"
+   ],
+   "suggest": "Google Digital Garage / Analytics certificate"
+  },
+  "sales": {
+   "label": "Sales & business development",
+   "aliases": [
+    "sales",
+    "business development",
+    "lead generation",
+    "client acquisition",
+    "b2b sales",
+    "retail sales"
+   ],
+   "related": [
+    "communication",
+    "marketing",
+    "crm"
+   ],
+   "suggest": "Sales internship with targets"
+  },
+  "crm": {
+   "label": "CRM tools",
+   "aliases": [
+    "crm",
+    "salesforce",
+    "zoho crm",
+    "hubspot"
+   ],
+   "related": [
+    "sales"
+   ],
+   "suggest": "Zoho/Salesforce CRM basics"
+  },
+  "hr": {
+   "label": "Human resources",
+   "aliases": [
+    "recruitment",
+    "human resource",
+    "hr operations",
+    "payroll",
+    "onboarding",
+    "employee engagement",
+    "labour laws",
+    "talent acquisition"
+   ],
+   "related": [
+    "communication"
+   ],
+   "suggest": "HR internship; payroll/labour-law basics"
+  },
+  "operations": {
+   "label": "Operations & supply chain",
+   "aliases": [
+    "operations management",
+    "supply chain",
+    "logistics",
+    "inventory control",
+    "procurement",
+    "warehouse"
+   ],
+   "related": [
+    "excel"
+   ],
+   "suggest": "Supply-chain project or certificate"
+  },
+  "communication": {
+   "label": "Communication",
+   "aliases": [
+    "communication skills",
+    "presentation skills",
+    "public speaking",
+    "english communication",
+    "interpersonal skills"
+   ],
+   "related": [],
+   "suggest": "Mock GD/PI sessions; presentation practice"
+  },
+  "teamwork": {
+   "label": "Teamwork & leadership",
+   "aliases": [
+    "team player",
+    "teamwork",
+    "leadership",
+    "team lead",
+    "event management"
+   ],
+   "related": [
+    "communication"
+   ],
+   "suggest": "Lead a club or college event"
+  }
+ },
+ "job_families": {
+  "engineering": {
+   "software_engineer": {
+    "label": "Software / IT services engineer",
+    "core": [
+     "dsa",
+     "java",
+     "python",
+     "sql",
+     "web"
+    ],
+    "optional": [
+     "cloud",
+     "testing",
+     "communication"
+    ]
+   },
+   "data_analyst": {
+    "label": "Data analyst",
+    "core": [
+     "python",
+     "sql",
+     "data_analysis",
+     "excel"
+    ],
+    "optional": [
+     "ml",
+     "communication"
+    ]
+   },
+   "civil_engineer": {
+    "label": "Civil site / design engineer",
+    "core": [
+     "autocad",
+     "surveying",
+     "estimation",
+     "site_execution"
+    ],
+    "optional": [
+     "staad",
+     "safety",
+     "excel"
+    ]
+   },
+   "mechanical_engineer": {
+    "label": "Mechanical production / maintenance engineer",
+    "core": [
+     "manufacturing",
+     "maintenance",
+     "solidworks",
+     "autocad"
+    ],
+    "optional": [
+     "quality_tools",
+     "safety"
+    ]
+   },
+   "electrical_engineer": {
+    "label": "Electrical / power engineer",
+    "core": [
+     "electrical_machines",
+     "plc",
+     "electrical_wiring"
+    ],
+    "optional": [
+     "safety",
+     "autocad"
+    ]
+   },
+   "mining_engineer": {
+    "label": "Mining engineer",
+    "core": [
+     "mining_ops",
+     "mine_safety",
+     "surveying"
+    ],
+    "optional": [
+     "autocad",
+     "safety"
+    ]
+   }
+  },
+  "polytechnic": {
+   "civil_je": {
+    "label": "Junior engineer / site supervisor (Civil)",
+    "core": [
+     "surveying",
+     "site_execution",
+     "autocad",
+     "estimation"
+    ],
+    "optional": [
+     "safety"
+    ]
+   },
+   "mechanical_technician": {
+    "label": "CNC / maintenance technician",
+    "core": [
+     "manufacturing",
+     "maintenance"
+    ],
+    "optional": [
+     "autocad",
+     "safety",
+     "quality_tools"
+    ]
+   },
+   "electrical_technician": {
+    "label": "Electrician / substation technician",
+    "core": [
+     "electrical_wiring",
+     "electrical_machines",
+     "safety"
+    ],
+    "optional": [
+     "plc"
+    ]
+   },
+   "mining_technician": {
+    "label": "Mining technician / mine mate",
+    "core": [
+     "mining_ops",
+     "mine_safety"
+    ],
+    "optional": [
+     "surveying",
+     "safety"
+    ]
+   },
+   "it_support": {
+    "label": "IT support / junior developer",
+    "core": [
+     "networking",
+     "web",
+     "sql"
+    ],
+    "optional": [
+     "python",
+     "communication"
+    ]
+   }
+  },
+  "pharmacy": {
+   "production_chemist": {
+    "label": "Production / manufacturing chemist",
+    "core": [
+     "pharma_production",
+     "gmp"
+    ],
+    "optional": [
+     "pharma_qa",
+     "safety"
+    ]
+   },
+   "qa_qc_analyst": {
+    "label": "QA / QC analyst",
+    "core": [
+     "pharma_qc",
+     "instruments",
+     "gmp",
+     "pharma_qa"
+    ],
+    "optional": [
+     "regulatory"
+    ]
+   },
+   "medical_representative": {
+    "label": "Medical representative",
+    "core": [
+     "pharmacology",
+     "medical_sales",
+     "communication"
+    ],
+    "optional": [
+     "sales"
+    ]
+   },
+   "pharmacist": {
+    "label": "Hospital / retail pharmacist",
+    "core": [
+     "dispensing",
+     "pharmacology",
+     "pharmacist_reg"
+    ],
+    "optional": [
+     "communication",
+     "excel"
+    ]
+   },
+   "regulatory_associate": {
+    "label": "Regulatory / documentation associate",
+    "core": [
+     "regulatory",
+     "pharma_qa"
+    ],
+    "optional": [
+     "gmp",
+     "excel"
+    ]
+   }
+  },
+  "management": {
+   "sales_bd": {
+    "label": "Sales & business development",
+    "core": [
+     "sales",
+     "communication",
+     "marketing"
+    ],
+    "optional": [
+     "crm",
+     "excel"
+    ]
+   },
+   "bfsi": {
+    "label": "Banking & financial services",
+    "core": [
+     "finance",
+     "excel",
+     "communication"
+    ],
+    "optional": [
+     "tally",
+     "sales"
+    ]
+   },
+   "hr_executive": {
+    "label": "HR executive",
+    "core": [
+     "hr",
+     "communication",
+     "excel"
+    ],
+    "optional": [
+     "teamwork"
+    ]
+   },
+   "digital_marketing_exec": {
+    "label": "Marketing / digital marketing",
+    "core": [
+     "digital_marketing",
+     "marketing"
+    ],
+    "optional": [
+     "excel",
+     "communication"
+    ]
+   },
+   "operations_exec": {
+    "label": "Operations / supply chain",
+    "core": [
+     "operations",
+     "excel"
+    ],
+    "optional": [
+     "communication"
+    ]
+   }
+  }
+ }
+}
