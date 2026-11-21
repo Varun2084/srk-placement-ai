@@ -141,3 +141,36 @@ def test_reports_and_audit(client, h):
     assert client.get("/api/audit", headers=h["esm"]).status_code == 403
     csv = client.get("/api/reports/placements.csv", headers=h["tpo"])
     assert csv.status_code == 200 and csv.text.startswith("institute,programme")
+
+
+def test_csv_import_and_password_flow(client, h):
+    csv_text = ("name,email,roll_no,institute,programme,branch,passing_year,cgpa,aggregate_pct,active_backlogs,date_of_birth_under_18\n"
+                "Real Student,real.one@example.com,R001,SRKCP,BPHARM,Pharmacy,2027,,72.5,0,no\n"
+                "Wrong Inst,wrong@example.com,R002,SRKCESM,BTECH,Civil,2027,7,,0,no\n"
+                "Minor One,minor@example.com,R003,SRKCP,DPHARM,Pharmacy,2028,,,,yes\n")
+    r = client.post("/api/admin/students/import", headers=h["cp"],
+                    files={"file": ("s.csv", io.BytesIO(csv_text.encode()), "text/csv")})
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["created"] == 2 and "outside your institute" in body["result_csv"]
+    pw = next(l.split(",")[3] for l in body["result_csv"].splitlines() if l.startswith("2,"))
+    r = client.post("/api/auth/login", json={"email": "real.one@example.com", "password": pw})
+    assert r.status_code == 200
+    hdr = {"Authorization": f"Bearer {r.json()['token']}"}
+    me = client.get("/api/students/me", headers=hdr).json()
+    assert me["academics_verified"] is True and me["aggregate_pct"] == 72.5
+    assert client.post("/api/auth/change-password", headers=hdr, json={"old_password": pw, "new_password": "NewPass#2027"}).status_code == 200
+    assert client.post("/api/auth/login", json={"email": "real.one@example.com", "password": "NewPass#2027"}).status_code == 200
+    # Minor cannot consent without guardian consent.
+    minor_pw = next(l.split(",")[3] for l in body["result_csv"].splitlines() if l.startswith("4,"))
+    mh = {"Authorization": "Bearer " + client.post("/api/auth/login", json={"email": "minor@example.com", "password": minor_pw}).json()["token"]}
+    mid = client.get("/api/students/me", headers=mh).json()["id"]
+    assert client.post(f"/api/students/{mid}/consent", headers=mh, json={"granted": True}).status_code == 400
+    assert client.post(f"/api/students/{mid}/consent", headers=mh, json={"granted": True, "guardian_consent": True}).status_code == 200
+
+
+def test_staff_accounts(client, h):
+    r = client.post("/api/admin/users", headers=h["tpo"], json={"email": "c3@srk.local", "name": "New Coord", "role": "coordinator", "institute_id": 1})
+    assert r.status_code == 200 and r.json()["temporary_password"]
+    assert client.post("/api/admin/users", headers=h["tpo"], json={"email": "a2@srk.local", "name": "Test User", "role": "admin"}).status_code == 403
+    assert client.post("/api/admin/users", headers=h["esm"], json={"email": "z@srk.local", "name": "Test User", "role": "tpo"}).status_code == 403

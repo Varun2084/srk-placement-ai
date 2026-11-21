@@ -15,21 +15,23 @@ This MVP follows the *SRK Group AI Resume Screening & Placement Intelligence Pla
 | **TPO** (group-wide) | Everything a coordinator can do, across both institutes. Approve custom scoring weights. Approve shortlists, which are shared only with students who consented. View the dashboard, funnel and fairness monitor. Export a placements CSV for NAAC/NIRF. View the audit log. |
 | **Employers** | See only their own drives, and only candidates who were approved and consented. Profiles show verified academics and skill evidence; contact details are hidden. Record interview, offer or not selected. |
 | **AI pipeline** | Checks file type by magic bytes, with a basic active-content screen. Extracts text from PDF/DOCX. Splits the resume into sections and extracts fields, keeping the source span of each field. Normalises skills against 47 skills and 21 job families across 4 streams. Applies eligibility gates, where missing data is marked "verify" and never counted as a fail. Scores evidence, weighting projects and internships above skills that are only listed. Adds TF-IDF project/JD relevance and template explanations, and flags prompt-injection text. |
+| **Accounts** | Admin/TPO create staff and employer accounts. Bulk-import students from a college CSV (academics marked verified) and get a CSV of login passwords. Coordinators can reset their own students' passwords; everyone can change their own. |
 | **Governance** | Immutable audit events for logins, views, uploads, match runs, decisions, approvals and exports. Each match run is versioned (rubric, parser, taxonomy, drive version). Overrides are detected and counted. A four-fifths fairness flag watches shortlist rates by group. Protected attributes are never collected or used. |
 
 It is fully local: no paid AI API is needed. `app/ai/providers.py` has adapters so you can plug in sentence-transformers, Claude or another LLM later.
 
 ## Run it
 
-### Option A — Docker (recommended for the college server)
+### Option A — College server with Docker (one command)
+
+On any Ubuntu 24.04 PC on the college network:
 
 ```bash
-cp .env.example .env          # then edit JWT_SECRET and POSTGRES_PASSWORD
-docker compose up --build
-# open http://localhost:8000
+sudo bash deploy/install.sh          # demo data
+sudo bash deploy/install.sh --real   # empty database + admin account, for real students
 ```
 
-With `SEED_DEMO=1`, the first start loads synthetic demo data: 72 students, 4 drives and every role. Set `SEED_DEMO=0` before you use real student data.
+This installs Docker, generates secrets, starts the app with Postgres (it restarts itself after reboots), and sets up nightly backups. **Full Hinglish guide:** [docs/COLLEGE_SERVER_SETUP.md](docs/COLLEGE_SERVER_SETUP.md). It also covers access from outside the campus via Cloudflare Tunnel, CSV import of students, Windows, backups and troubleshooting.
 
 ### Option B — local development
 
@@ -82,7 +84,7 @@ backend/
     security.py    JWT auth, roles, institute scoping
     services.py    resume processing and match runs
   seed.py          synthetic demo data
-  tests/           16 tests: parser, gates, scoring, isolation, consent, overrides, approvals, reports
+  tests/           18 tests: parser, gates, scoring, isolation, consent, overrides, approvals, reports
 frontend/          React + TypeScript (Vite); student, coordinator, TPO, employer screens
 samples/           synthetic resumes for upload testing
 ```
@@ -92,7 +94,7 @@ samples/           synthetic resumes for upload testing
 These are release gates from the roadmap. The code supports them, but people have to do them:
 
 - [ ] Legal/DPDP review of the consent text, retention period, grievance officer and employer data-sharing terms.
-- [ ] Set a strong `JWT_SECRET`, use HTTPS, and run Postgres with backups and restore tests.
+- [ ] Use `install.sh --real` (strong secrets, Postgres, nightly backups), test a restore, and use HTTPS (Cloudflare Tunnel) for access from outside the campus.
 - [ ] Add a real malware scanner (e.g. ClamAV) and OCR for scanned resumes (`extract.py` has the hooks).
 - [ ] Domain leads review `taxonomy.json` for their stream, and build a gold-labelled evaluation set.
 - [ ] Run accessibility review, load test and an external penetration test.

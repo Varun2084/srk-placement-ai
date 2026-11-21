@@ -7,7 +7,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .config import settings
 from .db import Base, engine
-from .routers import auth, drives, reports, students
+from .routers import admin, auth, drives, reports, students
 
 app = FastAPI(
     title="SRK Placement AI",
@@ -34,7 +34,7 @@ async def security_headers(request, call_next):
 
 
 Base.metadata.create_all(engine)
-for r in (auth.router, students.router, drives.router, reports.router):
+for r in (admin.router, auth.router, students.router, drives.router, reports.router):
     app.include_router(r)
 
 

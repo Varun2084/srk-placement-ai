@@ -52,6 +52,7 @@ def student_out(s: Student, viewer: User, detail: bool = False) -> dict:
     phone = next((f.value for f in (r.fields if r else []) if f.field == "phone"), None)
     out = {
         "id": s.id,
+        "user_id": s.user_id,
         "name": s.user.name,
         "email": s.user.email if show_contact else MASKED,
         "phone": (phone if show_contact else MASKED) if phone else None,

@@ -14,6 +14,8 @@ import Queue from "./pages/Queue";
 import Employer from "./pages/Employer";
 import Reports from "./pages/Reports";
 import Audit from "./pages/Audit";
+import Accounts from "./pages/Accounts";
+import ChangePassword from "./pages/ChangePassword";
 
 const ROLE_LABEL: Record<string, string> = {
   admin: "Group Admin",
@@ -43,6 +45,7 @@ export default function App() {
             ["/", "Dashboard"],
             ["/drives", "Drives"],
             ["/students", "Students"],
+            ["/accounts", "Accounts"],
             ...(user.role !== "coordinator" ? ([["/audit", "Audit log"]] as [string, string][]) : []),
           ];
 
@@ -69,6 +72,8 @@ export default function App() {
             <br />
             <span style={{ opacity: 0.7 }}>{ROLE_LABEL[user.role]}</span>
             <br />
+            <NavLink to="/password" style={{ padding: 0 }}>Change password</NavLink>
+            <br />
             <a href="#" onClick={(e) => { e.preventDefault(); clearSession(); setUser(null); }} style={{ padding: 0 }}>
               {t("logout")}
             </a>
@@ -93,8 +98,10 @@ export default function App() {
                 <Route path="/students" element={<Students user={user} />} />
                 <Route path="/students/:id" element={<StudentDetail user={user} />} />
                 <Route path="/audit" element={<Audit />} />
+                <Route path="/accounts" element={<Accounts user={user} />} />
               </>
             )}
+            <Route path="/password" element={<ChangePassword />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </main>

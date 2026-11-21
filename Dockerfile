@@ -17,4 +17,4 @@ COPY --from=web /web/dist /app/frontend/dist
 RUN useradd -m srk && mkdir -p /app/backend/uploads && chown -R srk /app
 USER srk
 EXPOSE 8000
-CMD ["sh", "-c", "if [ \"$SEED_DEMO\" = \"1\" ]; then python seed.py; fi; exec uvicorn app.main:app --host 0.0.0.0 --port 8000"]
+CMD ["sh", "-c", "if [ \"$SEED_DEMO\" = \"1\" ]; then python seed.py; else python seed.py --base; fi; exec uvicorn app.main:app --host 0.0.0.0 --port 8000"]

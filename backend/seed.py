@@ -3,6 +3,7 @@ synthetic students with synthetic resumes. No real student data is used.
 
     python seed.py            # create demo database
     python seed.py --reset    # wipe and recreate
+    python seed.py --base     # real install: institutes, programmes, admin (ADMIN_EMAIL / ADMIN_PASSWORD)
 """
 import random
 import sys
@@ -180,7 +181,7 @@ def make_resume(name, email, phone, prog_code, prog_name, branch, year, cgpa, pc
     return "\n".join(lines)
 
 
-def main(reset: bool):
+def main(reset: bool, base_only: bool = False):
     if reset:
         Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
@@ -200,6 +201,18 @@ def main(reset: bool):
         db.add(p)
         progs[code] = p
     db.flush()
+
+    if base_only:
+        # Real deployment: institutes, programmes and one admin account; no demo people.
+        import os
+        email = os.getenv("ADMIN_EMAIL", "admin@srk.local").lower()
+        password = os.getenv("ADMIN_PASSWORD")
+        if not password:
+            raise SystemExit("Set ADMIN_PASSWORD in .env for a real (non-demo) install")
+        db.add(User(email=email, name="Group Admin", password_hash=hash_password(password), role="admin"))
+        db.commit()
+        print(f"Created institutes, programmes and admin account {email}.")
+        return
 
     pw = hash_password(DEMO_PASSWORD)
     admin = User(email="admin@srk.demo", name="Group Admin (IT Cell)", password_hash=pw, role="admin")
@@ -301,4 +314,4 @@ def main(reset: bool):
 
 
 if __name__ == "__main__":
-    main("--reset" in sys.argv)
+    main("--reset" in sys.argv, base_only="--base" in sys.argv)

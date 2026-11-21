@@ -48,6 +48,11 @@ export default function StudentDetail({ user: _user }: { user: User }) {
           <div className="muted">{s.roll_no} · {s.programme_name} · {s.branch} · {s.institute} · {s.email}</div>
         </div>
         <div className="row">
+          <button className="small" onClick={async () => {
+            if (!confirm(`Reset password for ${s.name}?`)) return;
+            try { const r: any = await api(`/api/admin/users/${s.user_id}/reset-password`, { method: "POST" }); setMsg(`New temporary password for ${r.email}: ${r.temporary_password}`); }
+            catch (e: any) { setError(e.message); }
+          }}>Reset password</button>
           {s.consent ? <Pill kind="good">Consent given</Pill> : <Pill kind="warn">No consent</Pill>}
           {s.academics_verified ? <Pill kind="good">Verified</Pill> : <Pill kind="warn">Unverified</Pill>}
         </div>
