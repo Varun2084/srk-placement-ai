@@ -1,0 +1,30 @@
+{
+  // Run and Debug (Ctrl+Shift+D) > "Full stack (debug)": breakpoints in Python and in the browser.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend: FastAPI (debug)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["app.main:app", "--reload", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "windows": { "python": "${workspaceFolder}/.venv/Scripts/python.exe" },
+      "env": { "JWT_SECRET": "local-dev-only-secret-do-not-use-in-production-0001" },
+      "jinja": false,
+      "justMyCode": true
+    },
+    {
+      "name": "Frontend: Chrome (debug)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/frontend",
+      "preLaunchTask": "Run frontend (web on :5173)"
+    }
+  ],
+  "compounds": [
+    { "name": "Full stack (debug)", "configurations": ["Backend: FastAPI (debug)", "Frontend: Chrome (debug)"], "stopAll": true }
+  ]
+}

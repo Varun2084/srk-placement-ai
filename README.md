@@ -31,6 +31,17 @@ It is fully local: no paid AI API is needed. `app/ai/providers.py` has adapters 
 
 Band karna ho to `docker compose stop`, dobara chalana ho to `docker compose start` (ya `start.bat` phir se).
 
+### VS Code mein chalana (bina Docker)
+
+Zaroorat: [Python 3.11+](https://www.python.org/downloads/) (Windows par install karte waqt *Add to PATH* tick karein), [Node.js 20+](https://nodejs.org/) aur VS Code.
+
+1. VS Code mein **File → Open Folder** se `srk-placement-ai` folder kholein. Recommended extensions (Python) install karne ka popup aaye to *Install* karein.
+2. **Terminal → Run Task… → `1. Setup (first time)`**. Yeh Python packages aur npm packages install karta hai, aur demo data bharta hai. Sirf ek baar karna hai.
+3. **Terminal → Run Task… → `2. Run app (backend + frontend)`**. Backend aur frontend dono chalu ho jaayenge.
+4. Browser mein **http://localhost:5173** kholein. Code badlenge to page apne aap refresh ho jaayega.
+
+Debug karna ho (breakpoints) to **Run and Debug** (Ctrl+Shift+D) mein **Full stack (debug)** chunein. Tests chalane ke liye **Run Task → `Test: backend (pytest)`** chalaayein. Database `backend/srk_placement.db` (SQLite) mein rehta hai. Demo data dobara bharna ho to **Run Task → `Seed demo data`** chalaayein.
+
 ### Option A — College server with Docker (one command)
 
 On any Ubuntu 24.04 PC on the college network:
